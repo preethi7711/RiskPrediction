@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+    --bg-primary: 241 245 249;
+    --bg-secondary: 255 255 255;
+    --text-primary: 15 23 42;
+    --text-muted: 71 85 105;
+    --border-color: 203 213 225;
+  }
+
+  .dark {
+    color-scheme: dark;
+    --bg-primary: 7 13 25;
+    --bg-secondary: 15 23 42;
+    --text-primary: 241 245 249;
+    --text-muted: 148 163 184;
+    --border-color: 45 58 84;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply min-h-screen bg-[rgb(var(--bg-primary))] font-body text-[rgb(var(--text-primary))] antialiased transition-colors duration-300;
+    background-image:
+      radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), transparent 28%),
+      radial-gradient(circle at top right, rgba(52, 211, 153, 0.13), transparent 20%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent);
+  }
+
+  * {
+    @apply border-[rgb(var(--border-color))];
+  }
+}
+
+@layer components {
+  .panel {
+    @apply rounded-3xl border border-white/10 bg-[rgb(var(--bg-secondary))]/90 shadow-soft backdrop-blur;
+  }
+
+  .panel-header {
+    @apply mb-4 flex items-center justify-between gap-3;
+  }
+}
+
